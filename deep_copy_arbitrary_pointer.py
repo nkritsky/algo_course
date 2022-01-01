@@ -4,4 +4,21 @@
 # the original list (inserting, modifying and removing) should not affect the copied list.
 
 def deep_copy_arbitrary_pointer(head):
-  return None
+   result = None
+   nodes = {}
+   while head:
+      if result == None:
+         result=LinkedListNode(head.data)
+         result_cur=result
+         if head.arbitrary not in nodes:
+            nodes[head.arbitrary] = LinkedListNode(head.arbitrary.data)
+         result_cur.arbtrary = nodes[head.arbitrary]
+      else:
+         result_cur.next=LinkedListNode(head.data)
+         result_cur=result_cur.next
+      if head.arbitrary not in nodes:
+         nodes[head.arbitrary] = LinkedListNode(head.arbitrary.data)
+      result_cur.arbtrary = nodes[head.arbitrary]
+      head = head.next
+   return result
+   
