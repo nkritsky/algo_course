@@ -6,19 +6,20 @@
 def deep_copy_arbitrary_pointer(head):
    result = None
    nodes = {}
+   nodes [None]=None
    while head:
       if result == None:
          result=LinkedListNode(head.data)
          result_cur=result
          if head.arbitrary not in nodes:
             nodes[head.arbitrary] = LinkedListNode(head.arbitrary.data)
-         result_cur.arbtrary = nodes[head.arbitrary]
+         result_cur.arbitrary = nodes[head.arbitrary]
       else:
          result_cur.next=LinkedListNode(head.data)
          result_cur=result_cur.next
       if head.arbitrary not in nodes:
          nodes[head.arbitrary] = LinkedListNode(head.arbitrary.data)
-      result_cur.arbtrary = nodes[head.arbitrary]
+      result_cur.arbitrary = nodes[head.arbitrary]
       head = head.next
    return result
    
